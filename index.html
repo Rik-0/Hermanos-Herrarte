@@ -1,11 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Galería</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú - Hermanos Herrarte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f4f0;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .galeria {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .galeria img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+        .galeria img:hover {
+            transform: scale(1.02);
+        }
+        .menu {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+        .menu h2 {
+            color: #e67e22;
+            border-bottom: 3px solid #e67e22;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .menu h2:first-of-type {
+            margin-top: 0;
+        }
+        .menu ul {
+            list-style: none;
+            padding: 0;
+        }
+        .menu li {
+            padding: 6px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            justify-content: space-between;
+        }
+        .menu li:last-child {
+            border-bottom: none;
+        }
+        .precio {
+            font-weight: bold;
+            color: #e67e22;
+        }
+        .subcategoria {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 15px;
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
-    <h1>Mis imágenes</h1>
-    <img src="IMG-20260907-WA0004.jpg" width="300">
-    <img src="IMG-20260907-WA0005.jpg" width="300">
+
+    <h1>🍽️ Hermanos Herrarte</h1>
+
+    <!-- GALERÍA DE IMÁGENES GRANDES -->
+    <div class="galeria">
+        <img src="IMG-20260907-WA0004.jpg" alt="Imagen 1">
+        <img src="IMG-20260907-WA0005.jpg" alt="Imagen 2">
+    </div>
+
+    <!-- MENÚ COMPLETO -->
+    <div class="menu">
+
+        <!-- BEBIDAS -->
+        <h2>🥤 BEBIDAS</h2>
+        <ul>
+            <li><span>Misturada (galle, toronja)</span><span class="precio">Q35.00</span></li>
+            <li><span>Mineral preparado</span><span class="precio">Q10.00</span></li>
+            <li><span>Clemente</span><span class="precio">Q25.00</span></li>
+            <li><span>Aigua V8 preparada</span><span class="precio">Q21.00</span></li>
+            <li><span>Volatilizantes Químicos</span><span class="precio">Q30.00</span></li>
+            <li><span>Salsa (Toma de Zucapé, Tequila, Isla Cuervo)</span><span class="precio">Q50.00</span></li>
+            <li><span>Limonadas naturales</span><span class="precio">Q20.00</span></li>
+            <li><span>Sodas con sabor</span><span class="precio">Q40.00</span></li>
+            <li><span>Agua pura</span><span class="precio">Q10.00</span></li>
+            <li><span>Jambón extra caliente</span><span class="precio">Q30.00</span></li>
+        </ul>
+
+        <!-- BOTELLAS -->
+        <h2>🍾 BOTELLAS</h2>
+        <ul>
+            <li><span>Boca de Zacapa</span><span class="precio">Q60.00</span></li>
+            <li><span>Lente Caliente</span><span class="precio">Q150.00</span></li>
+        </ul>
+
+        <!-- EXTRAIS -->
+        <h2>🍟 EXTRAIS</h2>
+        <ul>
+            <li><span>Conchas anacardias</span><span class="precio">Q100.00</span></li>
+            <li><span>Aventa de papas</span><span class="precio">Q25.00</span></li>
+            <li><span>Pescado en el agua claras</span><span class="precio">Q30.00</span></li>
+            <li><span>Pescado en tequila</span><span class="precio">Q1.00</span></li>
+        </ul>
+
+        <!-- MENÚ -->
+        <h2>🍖 MENÚ</h2>
+
+        <div class="subcategoria">QUYCIDES</div>
+        <ul>
+            <li><span>Carne de camarón</span><span class="precio">Q350.00</span></li>
+            <li><span>Carne de pollo</span><span class="precio">Q195.00</span></li>
+        </ul>
+
+        <div class="subcategoria">CAMARONES</div>
+        <ul>
+            <li><span>Camarones al ají (jumbo)</span><span class="precio">Q300.00</span></li>
+            <li><span>Camarones fritos (Jumbalos)</span><span class="precio">Q250.00</span></li>
+            <li><span>Camarones con espinacas (Jumbalos)</span><span class="precio">Q200.00</span></li>
+            <li><span>Camarones a la salsa</span><span class="precio">Q100.00</span></li>
+        </ul>
+
+        <div class="subcategoria">CALDOS</div>
+        <ul>
+            <li><span>Caldo do camarón</span><span class="precio">Q320.00</span></li>
+            <li><span>Caldo de pescado</span><span class="precio">Q280.00</span></li>
+            <li><span>Caldo marisco</span><span class="precio">Q180.00</span></li>
+        </ul>
+
+        <div class="subcategoria">HAMBURGUESA</div>
+        <ul>
+            <li><span>Hamburguesa con chorizo</span><span class="precio">Q100.00</span></li>
+        </ul>
+
+        <div class="subcategoria">CARNES</div>
+        <ul>
+            <li><span>Carne cocida</span><span class="precio">Q95.00</span></li>
+            <li><span>Molino de leva</span><span class="precio">Q120.00</span></li>
+            <li><span>Molino de palta</span><span class="precio">Q105.00</span></li>
+        </ul>
+
+        <div class="subcategoria">HAUSBUERGUSA</div>
+        <ul>
+            <li><span>Hausbuergusa con chorizo</span><span class="precio">Q100.00</span></li>
+        </ul>
+
+    </div>
+
 </body>
 </html>
