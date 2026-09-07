@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hermanos Herrarte · Menú</title>
+    <title>Hermanos Herrarte · Galería</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -25,14 +25,14 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             width: 100%;
         }
 
         /* === HERO === */
         .hero {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             padding: 2rem 0 1.5rem 0;
             position: relative;
         }
@@ -43,8 +43,8 @@
             top: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: radial-gradient(circle, rgba(212, 163, 115, 0.15) 0%, transparent 70%);
             border-radius: 50%;
             filter: blur(20px);
@@ -52,7 +52,7 @@
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.4rem;
+            font-size: 4rem;
             font-weight: 700;
             background: linear-gradient(135deg, #f5e6d3 0%, #d4a373 60%, #b8865a 100%);
             -webkit-background-clip: text;
@@ -66,219 +66,81 @@
         .hero p {
             color: #a89a8c;
             font-weight: 300;
-            letter-spacing: 6px;
-            font-size: 0.8rem;
+            letter-spacing: 8px;
+            font-size: 0.9rem;
             text-transform: uppercase;
             border-top: 1px solid rgba(212, 163, 115, 0.15);
             padding-top: 0.6rem;
             display: inline-block;
         }
 
-        /* === GALERÍA (imágenes completas) === */
+        /* === GALERÍA (imágenes grandes y completas) === */
         .galeria {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin: 2.5rem 0 3.5rem 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 1rem;
         }
 
         .galeria .img-wrapper {
-            flex: 1 1 42%;
-            min-width: 280px;
-            max-width: 480px;
             background: #1a1512;
-            border-radius: 28px;
+            border-radius: 32px;
             overflow: hidden;
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(212, 163, 115, 0.08);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            padding: 0.4rem;
+            box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(212, 163, 115, 0.08);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            padding: 0.6rem;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .galeria .img-wrapper:hover {
-            transform: scale(1.02) translateY(-4px);
-            box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.95), 0 0 0 2px rgba(212, 163, 115, 0.25);
+            transform: scale(1.03) translateY(-8px);
+            box-shadow: 0 40px 70px -15px rgba(0, 0, 0, 0.95), 0 0 0 2px rgba(212, 163, 115, 0.3);
         }
 
         .galeria img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 20px;
+            border-radius: 24px;
             object-fit: none;
             background: #0b0908;
-            transition: transform 0.4s ease;
+            transition: transform 0.5s ease;
         }
 
         .galeria .img-wrapper:hover img {
-            transform: scale(1.03);
-        }
-
-        /* === TARJETA DEL MENÚ === */
-        .menu-card {
-            background: rgba(20, 17, 15, 0.75);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(212, 163, 115, 0.12);
-            border-radius: 36px;
-            padding: 3rem 2.8rem;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 30px 60px -20px rgba(0, 0, 0, 0.9);
-            animation: fadeUp 0.9s ease-out forwards;
-            opacity: 0;
-        }
-
-        @keyframes fadeUp {
-            0% {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* === CATEGORÍAS === */
-        .categoria {
-            margin-top: 2.8rem;
-        }
-        .categoria:first-of-type {
-            margin-top: 0;
-        }
-
-        .categoria-titulo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: #d4a373;
-            border-bottom: 2px solid rgba(212, 163, 115, 0.2);
-            padding-bottom: 0.6rem;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            letter-spacing: 0.5px;
-        }
-
-        .categoria-titulo span {
-            font-size: 1.8rem;
-            filter: drop-shadow(0 0 6px rgba(212, 163, 115, 0.2));
-        }
-
-        /* === SUBCATEGORÍAS === */
-        .subcategoria {
-            display: inline-block;
-            font-weight: 700;
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #d4a373;
-            background: rgba(212, 163, 115, 0.08);
-            padding: 0.3rem 1.4rem;
-            border-radius: 40px;
-            margin: 1.8rem 0 0.8rem 0;
-            border: 1px solid rgba(212, 163, 115, 0.06);
-            backdrop-filter: blur(4px);
-        }
-
-        /* === LISTA DE ÍTEMS (CORREGIDO) === */
-        .lista-items {
-            list-style: none;
-            padding: 0;
-        }
-
-        .lista-items li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.7rem 0.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            font-weight: 300;
-            font-size: 1.05rem;
-            transition: all 0.25s ease;
-            border-radius: 10px;
-            gap: 15px;
-        }
-
-        .lista-items li:hover {
-            background: rgba(212, 163, 115, 0.04);
-            border-bottom-color: rgba(212, 163, 115, 0.15);
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .lista-items .nombre {
-            color: #f0ebe6;
-            font-weight: 400;
-            flex: 1; /* Ocupa el espacio disponible, empujando el precio a la derecha */
-            text-align: left;
-        }
-
-        .lista-items .precio {
-            font-weight: 700;
-            color: #d4a373;
-            background: rgba(0, 0, 0, 0.35);
-            padding: 0.2rem 1rem;
-            border-radius: 40px;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            border: 1px solid rgba(212, 163, 115, 0.08);
-            transition: all 0.2s ease;
-            flex-shrink: 0; /* Evita que se encoja */
-        }
-
-        .lista-items li:hover .precio {
-            background: rgba(212, 163, 115, 0.12);
-            border-color: rgba(212, 163, 115, 0.25);
+            transform: scale(1.02);
         }
 
         /* === RESPONSIVE === */
-        @media (max-width: 700px) {
+        @media (max-width: 800px) {
+            .galeria {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
             .hero h1 {
-                font-size: 2.5rem;
-            }
-            .galeria .img-wrapper {
-                flex: 1 1 100%;
-                max-width: 100%;
-            }
-            .menu-card {
-                padding: 2rem 1.4rem;
-                border-radius: 28px;
-            }
-            .categoria-titulo {
-                font-size: 1.7rem;
-            }
-            .lista-items li {
-                font-size: 0.95rem;
-                flex-wrap: nowrap;
-            }
-            .lista-items .precio {
-                font-size: 0.8rem;
-                padding: 0.1rem 0.7rem;
+                font-size: 3rem;
             }
         }
 
         @media (max-width: 480px) {
             body {
-                padding: 0.6rem;
+                padding: 0.8rem;
             }
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             .hero p {
                 font-size: 0.7rem;
-                letter-spacing: 4px;
+                letter-spacing: 5px;
             }
-            .menu-card {
-                padding: 1.2rem 0.9rem;
+            .galeria .img-wrapper {
+                border-radius: 24px;
+                padding: 0.3rem;
             }
-            .categoria-titulo {
-                font-size: 1.4rem;
-            }
-            .lista-items li {
-                font-size: 0.85rem;
+            .galeria img {
+                border-radius: 18px;
             }
         }
     </style>
@@ -286,109 +148,22 @@
 <body>
 <div class="container">
 
-    <!-- HERO -->
+    <!-- ENCABEZADO -->
     <div class="hero">
         <h1>Hermanos Herrarte</h1>
         <p>✦ Cocina de autor ✦</p>
     </div>
 
-    <!-- GALERÍA -->
+    <!-- GALERÍA DE IMÁGENES (SOLO FOTOS) -->
     <div class="galeria">
         <div class="img-wrapper">
-            <img src="IMG-20260907-WA0004.jpg" alt="Plato 1" />
+            <img src="IMG-20260907-WA0004.jpg" alt="Foto 1" />
         </div>
         <div class="img-wrapper">
-            <img src="IMG-20260907-WA0005.jpg" alt="Plato 2" />
+            <img src="IMG-20260907-WA0005.jpg" alt="Foto 2" />
         </div>
     </div>
 
-    <!-- MENÚ COMPLETO Y CORREGIDO -->
-    <div class="menu-card">
-
-        <!-- BEBIDAS -->
-        <div class="categoria">
-            <div class="categoria-titulo"><span>🥤</span> Bebidas</div>
-            <ul class="lista-items">
-                <li><span class="nombre">Micheladas (galão, coração)</span><span class="precio">Q35.00</span></li>
-                <li><span class="nombre">Miolo preparado</span><span class="precio">Q30.00</span></li>
-                <li><span class="nombre">Cimarrón</span><span class="precio">Q25.00</span></li>
-                <li><span class="nombre">Jugo VF preparado</span><span class="precio">Q25.00</span></li>
-                <li><span class="nombre">Volteados Goteira</span><span class="precio">Q30.00</span></li>
-                <li><span class="nombre">Salsas (Rios de Zacapa, Tequila, José Cuervo)</span><span class="precio">Q30.00</span></li>
-                <li><span class="nombre">Limonadas naturales</span><span class="precio">Q30.00</span></li>
-                <li><span class="nombre">Sodas de alubias</span><span class="precio">Q30.00</span></li>
-                <li><span class="nombre">Agua pura</span><span class="precio">Q30.00</span></li>
-                <li><span class="nombre">Jambon seca cola</span><span class="precio">Q30.00</span></li>
-                <li><span class="nombre">Jambon de Pepsi</span><span class="precio">Q30.00</span></li>
-            </ul>
-        </div>
-
-        <!-- BOTELLAS -->
-        <div class="categoria">
-            <div class="categoria-titulo"><span>🍾</span> Botellas</div>
-            <ul class="lista-items">
-                <li><span class="nombre">Ron de Zacapa</span><span class="precio">Q60.00</span></li>
-                <li><span class="nombre">José Cuervo</span><span class="precio">Q30.00</span></li>
-                <li><span class="nombre">XL</span><span class="precio">Q150.00</span></li>
-            </ul>
-        </div>
-
-        <!-- EXTRAS -->
-        <div class="categoria">
-            <div class="categoria-titulo"><span>🍟</span> Extras</div>
-            <ul class="lista-items">
-                <li><span class="nombre">Conchas preparadas</span><span class="precio">Q109.00</span></li>
-                <li><span class="nombre">Portas de papel</span><span class="precio">Q25.00</span></li>
-                <li><span class="nombre">Portas de frutas</span><span class="precio">Q30.00</span></li>
-                <li><span class="nombre">Portas de tortillas</span><span class="precio">Q60.00</span></li>
-            </ul>
-        </div>
-
-        <!-- MENÚ (Platos) -->
-        <div class="categoria">
-            <div class="categoria-titulo"><span>🍖</span> Menú</div>
-
-            <div class="subcategoria">✦ Cerviches</div>
-            <ul class="lista-items">
-                <li><span class="nombre">Cerveja de camarón</span><span class="precio">Q35.00</span></li>
-                <li><span class="nombre">Cerveja misto</span><span class="precio">Q35.00</span></li>
-            </ul>
-
-            <div class="subcategoria">✦ Aguacilis</div>
-            <ul class="lista-items">
-                <li><span class="nombre">Aguacate de camarón</span><span class="precio">Q150.00</span></li>
-                <li><span class="nombre">Aguacate misto</span><span class="precio">Q150.00</span></li>
-            </ul>
-
-            <div class="subcategoria">✦ Camarones</div>
-            <ul class="lista-items">
-                <li><span class="nombre">Camarones alúcidos</span><span class="precio">Q35.00</span></li>
-                <li><span class="nombre">Camarones fritos (Lambdas)</span><span class="precio">Q35.00</span></li>
-                <li><span class="nombre">Camarones empanados (Lambdas)</span><span class="precio">Q35.00</span></li>
-                <li><span class="nombre">Camarones empanados</span><span class="precio">Q35.00</span></li>
-                <li><span class="nombre">Camarones alúcidos</span><span class="precio">Q35.00</span></li>
-            </ul>
-
-            <div class="subcategoria">✦ Caldos</div>
-            <ul class="lista-items">
-                <li><span class="nombre">Caldos de camarón</span><span class="precio">Q35.00</span></li>
-                <li><span class="nombre">Caldos de pescado</span><span class="precio">Q35.00</span></li>
-                <li><span class="nombre">Caldos de camarón</span><span class="precio">Q35.00</span></li>
-            </ul>
-
-            <div class="subcategoria">✦ Carnis</div>
-            <ul class="lista-items">
-                <li><span class="nombre">Carnes alúcidos</span><span class="precio">Q35.00</span></li>
-                <li><span class="nombre">Carnes alúcidos</span><span class="precio">Q35.00</span></li>
-            </ul>
-
-            <div class="subcategoria">✦ Hamburguesa</div>
-            <ul class="lista-items">
-                <li><span class="nombre">Hamburguesa alambrada</span><span class="precio">Q200.00</span></li>
-            </ul>
-        </div>
-
-    </div><!-- fin menu-card -->
-</div><!-- fin container -->
+</div>
 </body>
 </html>
