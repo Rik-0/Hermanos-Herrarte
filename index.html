@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <style>
-        /* === RESET === */
         * {
             margin: 0;
             padding: 0;
@@ -30,7 +29,7 @@
             width: 100%;
         }
 
-        /* === HERO (mejorado con sombra y brillo) === */
+        /* === HERO === */
         .hero {
             text-align: center;
             margin-bottom: 2.5rem;
@@ -75,7 +74,7 @@
             display: inline-block;
         }
 
-        /* === GALERÍA (imágenes completas, sin recortes) === */
+        /* === GALERÍA (imágenes completas) === */
         .galeria {
             display: flex;
             flex-wrap: wrap;
@@ -118,7 +117,7 @@
             transform: scale(1.03);
         }
 
-        /* === TARJETA DEL MENÚ (glassmorphism mejorado) === */
+        /* === TARJETA DEL MENÚ === */
         .menu-card {
             background: rgba(20, 17, 15, 0.75);
             backdrop-filter: blur(16px);
@@ -126,9 +125,7 @@
             border: 1px solid rgba(212, 163, 115, 0.12);
             border-radius: 36px;
             padding: 3rem 2.8rem;
-            box-shadow:
-                inset 0 1px 0 rgba(255, 255, 255, 0.04),
-                0 30px 60px -20px rgba(0, 0, 0, 0.9);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 30px 60px -20px rgba(0, 0, 0, 0.9);
             animation: fadeUp 0.9s ease-out forwards;
             opacity: 0;
         }
@@ -186,7 +183,7 @@
             backdrop-filter: blur(4px);
         }
 
-        /* === LISTA DE ÍTEMS === */
+        /* === LISTA DE ÍTEMS (CORREGIDO) === */
         .lista-items {
             list-style: none;
             padding: 0;
@@ -195,13 +192,14 @@
         .lista-items li {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: center;
             padding: 0.7rem 0.5rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
             font-weight: 300;
             font-size: 1.05rem;
             transition: all 0.25s ease;
             border-radius: 10px;
+            gap: 15px;
         }
 
         .lista-items li:hover {
@@ -214,6 +212,8 @@
         .lista-items .nombre {
             color: #f0ebe6;
             font-weight: 400;
+            flex: 1; /* Ocupa el espacio disponible, empujando el precio a la derecha */
+            text-align: left;
         }
 
         .lista-items .precio {
@@ -225,8 +225,8 @@
             font-size: 0.9rem;
             white-space: nowrap;
             border: 1px solid rgba(212, 163, 115, 0.08);
-            margin-left: 18px;
             transition: all 0.2s ease;
+            flex-shrink: 0; /* Evita que se encoja */
         }
 
         .lista-items li:hover .precio {
@@ -252,8 +252,7 @@
             }
             .lista-items li {
                 font-size: 0.95rem;
-                flex-wrap: wrap;
-                gap: 6px;
+                flex-wrap: nowrap;
             }
             .lista-items .precio {
                 font-size: 0.8rem;
@@ -278,19 +277,22 @@
             .categoria-titulo {
                 font-size: 1.4rem;
             }
+            .lista-items li {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
 <div class="container">
 
-    <!-- === HERO === -->
+    <!-- HERO -->
     <div class="hero">
         <h1>Hermanos Herrarte</h1>
         <p>✦ Cocina de autor ✦</p>
     </div>
 
-    <!-- === GALERÍA (imágenes completas) === -->
+    <!-- GALERÍA -->
     <div class="galeria">
         <div class="img-wrapper">
             <img src="IMG-20260907-WA0004.jpg" alt="Plato 1" />
@@ -300,7 +302,7 @@
         </div>
     </div>
 
-    <!-- === MENÚ (SOLO NUEVOS ÍTEMS) === -->
+    <!-- MENÚ COMPLETO Y CORREGIDO -->
     <div class="menu-card">
 
         <!-- BEBIDAS -->
@@ -342,25 +344,22 @@
             </ul>
         </div>
 
-        <!-- MENU -->
+        <!-- MENÚ (Platos) -->
         <div class="categoria">
             <div class="categoria-titulo"><span>🍖</span> Menú</div>
 
-            <!-- CERVICHES -->
             <div class="subcategoria">✦ Cerviches</div>
             <ul class="lista-items">
                 <li><span class="nombre">Cerveja de camarón</span><span class="precio">Q35.00</span></li>
                 <li><span class="nombre">Cerveja misto</span><span class="precio">Q35.00</span></li>
             </ul>
 
-            <!-- AGUACILIS -->
             <div class="subcategoria">✦ Aguacilis</div>
             <ul class="lista-items">
                 <li><span class="nombre">Aguacate de camarón</span><span class="precio">Q150.00</span></li>
                 <li><span class="nombre">Aguacate misto</span><span class="precio">Q150.00</span></li>
             </ul>
 
-            <!-- CAMARONES -->
             <div class="subcategoria">✦ Camarones</div>
             <ul class="lista-items">
                 <li><span class="nombre">Camarones alúcidos</span><span class="precio">Q35.00</span></li>
@@ -370,7 +369,6 @@
                 <li><span class="nombre">Camarones alúcidos</span><span class="precio">Q35.00</span></li>
             </ul>
 
-            <!-- CALDOS -->
             <div class="subcategoria">✦ Caldos</div>
             <ul class="lista-items">
                 <li><span class="nombre">Caldos de camarón</span><span class="precio">Q35.00</span></li>
@@ -378,14 +376,12 @@
                 <li><span class="nombre">Caldos de camarón</span><span class="precio">Q35.00</span></li>
             </ul>
 
-            <!-- CARNIS -->
             <div class="subcategoria">✦ Carnis</div>
             <ul class="lista-items">
                 <li><span class="nombre">Carnes alúcidos</span><span class="precio">Q35.00</span></li>
                 <li><span class="nombre">Carnes alúcidos</span><span class="precio">Q35.00</span></li>
             </ul>
 
-            <!-- HAMBURGUESA -->
             <div class="subcategoria">✦ Hamburguesa</div>
             <ul class="lista-items">
                 <li><span class="nombre">Hamburguesa alambrada</span><span class="precio">Q200.00</span></li>
