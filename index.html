@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hermanos Herrarte · Galería</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hermanos Herrarte · Menú</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -25,123 +25,196 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             width: 100%;
         }
 
-        /* === HERO === */
+        /* Encabezado */
         .hero {
             text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0 1.5rem 0;
+            margin-bottom: 2.5rem;
+            padding: 2rem 0 1rem 0;
             position: relative;
         }
 
-        .hero::before {
+        .hero::after {
             content: '';
             position: absolute;
-            top: -20px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            background: radial-gradient(circle, rgba(212, 163, 115, 0.15) 0%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(20px);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4a373, transparent);
+            border-radius: 4px;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 3.2rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #f5e6d3 0%, #d4a373 60%, #b8865a 100%);
+            background: linear-gradient(135deg, #f5e6d3, #d4a373);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             letter-spacing: -0.5px;
             margin-bottom: 0.3rem;
-            text-shadow: 0 0 40px rgba(212, 163, 115, 0.1);
         }
 
         .hero p {
             color: #a89a8c;
             font-weight: 300;
-            letter-spacing: 8px;
-            font-size: 0.9rem;
+            letter-spacing: 4px;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            border-top: 1px solid rgba(212, 163, 115, 0.15);
-            padding-top: 0.6rem;
-            display: inline-block;
         }
 
-        /* === GALERÍA (imágenes grandes y completas) === */
+        /* ===== GALERÍA: Imágenes TAL CUAL (sin recortes) ===== */
         .galeria {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
-            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin: 2.5rem 0 3.5rem 0;
         }
 
         .galeria .img-wrapper {
+            flex: 1 1 42%;          /* Ocupan el ancho proporcional */
+            min-width: 280px;
+            max-width: 480px;
             background: #1a1512;
-            border-radius: 32px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(212, 163, 115, 0.08);
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            padding: 0.6rem;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(212, 163, 115, 0.08);
+            transition: all 0.4s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 0.4rem;        /* Pequeño respiro interno */
         }
 
         .galeria .img-wrapper:hover {
-            transform: scale(1.03) translateY(-8px);
-            box-shadow: 0 40px 70px -15px rgba(0, 0, 0, 0.95), 0 0 0 2px rgba(212, 163, 115, 0.3);
+            transform: scale(1.02);
+            border-color: rgba(212, 163, 115, 0.3);
+            box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.9);
         }
 
         .galeria img {
             width: 100%;
-            height: auto;
+            height: auto;           /* ← Clave: respeta la altura original */
             display: block;
-            border-radius: 24px;
-            object-fit: none;
+            border-radius: 16px;
+            object-fit: none;       /* Sin ningún tipo de ajuste forzado */
             background: #0b0908;
-            transition: transform 0.5s ease;
         }
 
-        .galeria .img-wrapper:hover img {
-            transform: scale(1.02);
+        /* ===== Menú (sin cambios, igual de elegante) ===== */
+        .menu-card {
+            background: rgba(20, 17, 15, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 163, 115, 0.15);
+            border-radius: 32px;
+            padding: 2.8rem 2.5rem;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 25px 50px -15px rgba(0, 0, 0, 0.8);
+            animation: fadeUp 0.8s ease-out forwards;
+            opacity: 0;
         }
 
-        /* === RESPONSIVE === */
-        @media (max-width: 800px) {
-            .galeria {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .hero h1 {
-                font-size: 3rem;
-            }
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .categoria {
+            margin-top: 2.8rem;
+        }
+        .categoria:first-of-type {
+            margin-top: 0;
+        }
+
+        .categoria-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            color: #d4a373;
+            border-bottom: 2px solid rgba(212, 163, 115, 0.2);
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .categoria-titulo span {
+            font-size: 1.8rem;
+        }
+
+        .subcategoria {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4a373;
+            background: rgba(212, 163, 115, 0.12);
+            padding: 0.3rem 1.2rem;
+            border-radius: 50px;
+            margin: 1.5rem 0 0.8rem 0;
+            border: 1px solid rgba(212, 163, 115, 0.08);
+        }
+
+        .lista-items {
+            list-style: none;
+            padding: 0;
+        }
+        .lista-items li {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-weight: 300;
+            font-size: 1.05rem;
+            transition: all 0.2s ease;
+            padding-left: 4px;
+            padding-right: 4px;
+            border-radius: 8px;
+        }
+        .lista-items li:hover {
+            background: rgba(212, 163, 115, 0.05);
+            border-bottom-color: rgba(212, 163, 115, 0.2);
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+        .lista-items .nombre {
+            color: #f0ebe6;
+            font-weight: 400;
+        }
+        .lista-items .precio {
+            font-weight: 700;
+            color: #d4a373;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            border: 1px solid rgba(212, 163, 115, 0.1);
+            margin-left: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 2.4rem; }
+            .galeria .img-wrapper { flex: 1 1 100%; max-width: 100%; }
+            .menu-card { padding: 1.8rem 1.2rem; border-radius: 24px; }
+            .categoria-titulo { font-size: 1.6rem; }
+            .lista-items li { font-size: 0.95rem; flex-wrap: wrap; gap: 6px; }
+            .lista-items .precio { font-size: 0.85rem; padding: 0.1rem 0.7rem; }
         }
 
         @media (max-width: 480px) {
-            body {
-                padding: 0.8rem;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero p {
-                font-size: 0.7rem;
-                letter-spacing: 5px;
-            }
-            .galeria .img-wrapper {
-                border-radius: 24px;
-                padding: 0.3rem;
-            }
-            .galeria img {
-                border-radius: 18px;
-            }
+            body { padding: 0.8rem; }
+            .hero h1 { font-size: 2rem; }
+            .menu-card { padding: 1.2rem 0.9rem; }
         }
     </style>
 </head>
@@ -154,16 +227,103 @@
         <p>✦ Cocina de autor ✦</p>
     </div>
 
-    <!-- GALERÍA DE IMÁGENES (SOLO FOTOS) -->
+    <!-- ===== GALERÍA DE IMÁGENES (TAL CUAL, SIN RECORTES) ===== -->
     <div class="galeria">
         <div class="img-wrapper">
-            <img src="IMG-20260907-WA0004.jpg" alt="Foto 1" />
+            <img src="IMG-20260907-WA0004.jpg" alt="Foto del menú 1">
         </div>
         <div class="img-wrapper">
-            <img src="IMG-20260907-WA0005.jpg" alt="Foto 2" />
+            <img src="IMG-20260907-WA0005.jpg" alt="Foto del menú 2">
         </div>
     </div>
 
+    <!-- MENÚ COMPLETO (ACTUALIZADO CON TUS NUEVOS ITEMS) -->
+    <div class="menu-card">
+
+        <!-- VOLAUTAS QUETZALTECA -->
+        <div class="categoria">
+            <div class="categoria-titulo"><span>🍹</span> Volautas Quetzalteca</div>
+            <ul class="lista-items">
+                <li><span class="nombre">Shots (Ron de Zacapa, Tequila, José Cuervo)</span><span class="precio">Q30.00</span></li>
+                <li><span class="nombre">Limonadas naturales</span><span class="precio">Q30.00</span></li>
+                <li><span class="nombre">Sodas de sabores</span><span class="precio">Q10.00</span></li>
+                <li><span class="nombre">Agua pura</span><span class="precio">Q10.00</span></li>
+                <li><span class="nombre">Jumbos coca cola</span><span class="precio">Q30.00</span></li>
+                <li><span class="nombre">Jumbos de Pepsi</span><span class="precio">Q30.00</span></li>
+            </ul>
+        </div>
+
+        <!-- BOTELLAS -->
+        <div class="categoria">
+            <div class="categoria-titulo"><span>🍾</span> Botellas</div>
+            <ul class="lista-items">
+                <li><span class="nombre">Ron de Zacapa</span><span class="precio">Q600.00</span></li>
+                <li><span class="nombre">José Cuervo</span><span class="precio">Q350.00</span></li>
+            </ul>
+        </div>
+
+        <!-- CERVECERÍA -->
+        <div class="categoria">
+            <div class="categoria-titulo"><span>🍤</span> Cervecería</div>
+            <ul class="lista-items">
+                <li><span class="nombre">Ceviche de camarón</span><span class="precio">Q150.00</span></li>
+                <li><span class="nombre">Ceviche mixto</span><span class="precio">Q150.00</span></li>
+                <li><span class="nombre">Aguachile de camarón</span><span class="precio">Q130.00</span></li>
+                <li><span class="nombre">Aguachile mixto</span><span class="precio">Q150.00</span></li>
+            </ul>
+        </div>
+
+        <!-- CAMARONES -->
+        <div class="categoria">
+            <div class="categoria-titulo"><span>🦐</span> Camarones</div>
+            <ul class="lista-items">
+                <li><span class="nombre">Camarones al ajo (Jumbos)</span><span class="precio">Q150.00</span></li>
+                <li><span class="nombre">Camarones fritos (Jumbos)</span><span class="precio">Q150.00</span></li>
+                <li><span class="nombre">Camarones empanizados (Jumbos)</span><span class="precio">Q150.00</span></li>
+                <li><span class="nombre">Camarones a la diablo</span><span class="precio">Q150.00</span></li>
+            </ul>
+        </div>
+
+        <!-- PESCADOS -->
+        <div class="categoria">
+            <div class="categoria-titulo"><span>🐟</span> Pescados</div>
+            <ul class="lista-items">
+                <li><span class="nombre">Mojarra frita</span><span class="precio">Q100.00 - Q120.00</span></li>
+                <li><span class="nombre">Mojarra empanizada</span><span class="precio">Q100.00 - Q120.00</span></li>
+                <li><span class="nombre">Mojarra mixta</span><span class="precio">Q150.00</span></li>
+                <li><span class="nombre">Mojarra al vapor</span><span class="precio">Q130.00</span></li>
+            </ul>
+        </div>
+
+        <!-- CALDOS -->
+        <div class="categoria">
+            <div class="categoria-titulo"><span>🍲</span> Caldos</div>
+            <ul class="lista-items">
+                <li><span class="nombre">Caldo de camarón</span><span class="precio">Q120.00</span></li>
+                <li><span class="nombre">Caldo de pescado</span><span class="precio">Q110.00</span></li>
+                <li><span class="nombre">Caldo mixto</span><span class="precio">Q130.00</span></li>
+            </ul>
+        </div>
+
+        <!-- CARNES -->
+        <div class="categoria">
+            <div class="categoria-titulo"><span>🥩</span> Carnes</div>
+            <ul class="lista-items">
+                <li><span class="nombre">Carne asada</span><span class="precio">Q130.00</span></li>
+                <li><span class="nombre">Milanesa de res</span><span class="precio">Q120.00</span></li>
+                <li><span class="nombre">Milanesa de pollo</span><span class="precio">Q110.00</span></li>
+            </ul>
+        </div>
+
+        <!-- BEBIDAS (extra) -->
+        <div class="categoria">
+            <div class="categoria-titulo"><span>🥤</span> Bebidas</div>
+            <ul class="lista-items">
+                <li><span class="nombre">(Variedad de sodas y aguas)</span><span class="precio">Consultar</span></li>
+            </ul>
+        </div>
+
+    </div>
 </div>
 </body>
 </html>
