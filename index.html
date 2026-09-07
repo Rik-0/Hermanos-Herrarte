@@ -69,28 +69,25 @@
             text-transform: uppercase;
         }
 
-        /* ===== GALERÍA: Imágenes TAL CUAL (sin recortes) ===== */
+        /* Galería con imágenes COMPLETAS (sin recorte) */
         .galeria {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
             margin: 2.5rem 0 3.5rem 0;
         }
 
         .galeria .img-wrapper {
-            flex: 1 1 42%;          /* Ocupan el ancho proporcional */
-            min-width: 280px;
-            max-width: 480px;
             background: #1a1512;
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(212, 163, 115, 0.08);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(212, 163, 115, 0.1);
             transition: all 0.4s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0.4rem;        /* Pequeño respiro interno */
+            height: 320px;
         }
 
         .galeria .img-wrapper:hover {
@@ -101,14 +98,18 @@
 
         .galeria img {
             width: 100%;
-            height: auto;           /* ← Clave: respeta la altura original */
-            display: block;
-            border-radius: 16px;
-            object-fit: none;       /* Sin ningún tipo de ajuste forzado */
-            background: #0b0908;
+            height: 100%;
+            object-fit: contain;   /* ← clave: imagen completa sin recortes */
+            padding: 0.5rem;       /* pequeño margen para no tocar bordes */
+            transition: transform 0.4s ease;
+            background: #0b0908;   /* fondo oscuro para rellenar espacios */
         }
 
-        /* ===== Menú (sin cambios, igual de elegante) ===== */
+        .galeria .img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Tarjeta del menú (glassmorphism) */
         .menu-card {
             background: rgba(20, 17, 15, 0.7);
             backdrop-filter: blur(12px);
@@ -204,7 +205,8 @@
         /* Responsive */
         @media (max-width: 700px) {
             .hero h1 { font-size: 2.4rem; }
-            .galeria .img-wrapper { flex: 1 1 100%; max-width: 100%; }
+            .galeria { grid-template-columns: 1fr; gap: 1.2rem; }
+            .galeria .img-wrapper { height: 220px; }
             .menu-card { padding: 1.8rem 1.2rem; border-radius: 24px; }
             .categoria-titulo { font-size: 1.6rem; }
             .lista-items li { font-size: 0.95rem; flex-wrap: wrap; gap: 6px; }
@@ -214,6 +216,7 @@
         @media (max-width: 480px) {
             body { padding: 0.8rem; }
             .hero h1 { font-size: 2rem; }
+            .galeria .img-wrapper { height: 160px; }
             .menu-card { padding: 1.2rem 0.9rem; }
         }
     </style>
@@ -227,20 +230,20 @@
         <p>✦ Cocina de autor ✦</p>
     </div>
 
-    <!-- ===== GALERÍA DE IMÁGENES (TAL CUAL, SIN RECORTES) ===== -->
+    <!-- GALERÍA (IMÁGENES COMPLETAS) -->
     <div class="galeria">
         <div class="img-wrapper">
-            <img src="IMG-20260907-WA0004.jpg" alt="Foto del menú 1">
+            <img src="IMG-20260907-WA0004.jpg" alt="Plato 1">
         </div>
         <div class="img-wrapper">
-            <img src="IMG-20260907-WA0005.jpg" alt="Foto del menú 2">
+            <img src="IMG-20260907-WA0005.jpg" alt="Plato 2">
         </div>
     </div>
 
-    <!-- MENÚ COMPLETO (ACTUALIZADO CON TUS NUEVOS ITEMS) -->
+    <!-- MENÚ -->
     <div class="menu-card">
 
-        <!-- VOLAUTAS QUETZALTECA -->
+        <!-- ===== VOLAUTAS QUETZALTECA (Bebidas especiales) ===== -->
         <div class="categoria">
             <div class="categoria-titulo"><span>🍹</span> Volautas Quetzalteca</div>
             <ul class="lista-items">
@@ -253,7 +256,7 @@
             </ul>
         </div>
 
-        <!-- BOTELLAS -->
+        <!-- ===== BOTELLAS ===== -->
         <div class="categoria">
             <div class="categoria-titulo"><span>🍾</span> Botellas</div>
             <ul class="lista-items">
@@ -262,7 +265,7 @@
             </ul>
         </div>
 
-        <!-- CERVECERÍA -->
+        <!-- ===== CERVECERÍA (Ceviches y Aguachiles) ===== -->
         <div class="categoria">
             <div class="categoria-titulo"><span>🍤</span> Cervecería</div>
             <ul class="lista-items">
@@ -273,7 +276,7 @@
             </ul>
         </div>
 
-        <!-- CAMARONES -->
+        <!-- ===== CAMARONES ===== -->
         <div class="categoria">
             <div class="categoria-titulo"><span>🦐</span> Camarones</div>
             <ul class="lista-items">
@@ -284,7 +287,7 @@
             </ul>
         </div>
 
-        <!-- PESCADOS -->
+        <!-- ===== PESCADOS ===== -->
         <div class="categoria">
             <div class="categoria-titulo"><span>🐟</span> Pescados</div>
             <ul class="lista-items">
@@ -295,7 +298,7 @@
             </ul>
         </div>
 
-        <!-- CALDOS -->
+        <!-- ===== CALDOS ===== -->
         <div class="categoria">
             <div class="categoria-titulo"><span>🍲</span> Caldos</div>
             <ul class="lista-items">
@@ -305,7 +308,7 @@
             </ul>
         </div>
 
-        <!-- CARNES -->
+        <!-- ===== CARNES ===== -->
         <div class="categoria">
             <div class="categoria-titulo"><span>🥩</span> Carnes</div>
             <ul class="lista-items">
@@ -315,7 +318,7 @@
             </ul>
         </div>
 
-        <!-- BEBIDAS (extra) -->
+        <!-- ===== BEBIDAS (adicional, al final) ===== -->
         <div class="categoria">
             <div class="categoria-titulo"><span>🥤</span> Bebidas</div>
             <ul class="lista-items">
@@ -323,7 +326,7 @@
             </ul>
         </div>
 
-    </div>
-</div>
+    </div><!-- fin menu-card -->
+</div><!-- fin container -->
 </body>
 </html>
